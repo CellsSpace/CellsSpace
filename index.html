@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="https://raw.githubusercontent.com/IsMaiL-LaBiaDe/ismail-labiade.github.io/master/32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://raw.githubusercontent.com/IsMaiL-LaBiaDe/ismail-labiade.github.io/master/192x192.png" sizes="192x192" />
+	<link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/IsMaiL-LaBiaDe/ismail-labiade.github.io/master/180x180.png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Eat cells smaller than you and don't get eaten by the bigger ones, as an MMO">
+    <meta name="keywords" content="ismaillabiade, io, cell, cells, virus, bacteria, blob, game, games, web game, html5, fun, IsMaiL-LaBiaDe, ismaillabiade, ismail, labiade">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+   <title>𝓢𝓹𝓪𝓬𝓮</title>
+
+    <link id="favicon" rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link href='assets/css/css.css' rel='stylesheet' type='text/css'>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/index.css" rel="stylesheet">
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/main_out.js"></script>
+	
+</head>
+
+<body>
+    <div class="modal fade" id="inPageModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="inPageModalTitle" class="modal-title">𝙻𝚘𝚊𝚍𝚒𝚗𝚐...</h4>
+                </div>
+                <div id="inPageModalBody" class="modal-body">
+                    <p>ᶠᵃᶦˡᵉᵈ ᵗᵒ ˡᵒᵃᵈ. ᴾˡᵉᵃˢᵉ ᶜʰᵉᶜᵏ ʸᵒᵘʳ ᶜᵒⁿⁿᵉᶜᵗᶦᵒⁿ!</p>
+                    <div class="center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlays">
+        <div id="helloDialog">
+            <form role="form">
+                <div class="form-group">
+                    <h7 id="title"> <center>𝓢𝓹𝓪𝓬𝓮</center></h7>
+                </div>
+
+                <div class="form-group">
+                    <input id="nick" class="form-control save" data-box-id="0" placeholder="Nick" maxlength="40" />
+                    <select id="gamemode" class="form-control" onchange="setserver($(this).val());" required>
+                           <option selected="" disabled="">𝕾𝖊𝖑𝖊𝖈𝖙</option>
+                           <option value="ils.glitch.me">𝐹𝐹A</option>
+						   <option value="ils1.glitch.me">𝐸𝑥𝑝𝑒𝑟𝑖𝑚𝑒𝑛𝑡𝑎𝑙</option>
+						   <option value="ils2.glitch.me">𝑇𝑒𝑎𝑚𝑠</option>
+						   <option value="ils3.glitch.me">𝑇𝑜𝑢𝑟𝑛𝑎𝑚𝑒𝑛𝑡</option>
+						   <option value="ils4.glitch.me">𝐻𝑢𝑛𝑔𝑒𝑟𝐺𝑎𝑚𝑒𝑠</option>
+						   <option value="ils5.glitch.me">𝑅𝑎𝑖𝑛𝑏𝑜𝑤</option>
+                    </select>
+                    <br clear="both" />
+                </div>
+
+                <div class="form-group">
+                    <div class="mb-10">
+                        <a data-toggle="modal" data-target="#inPageModal" onclick="openSkinsList();" class="btn-primary btn btn-info" role="button" style="width: 100%;">Ｓｋｉｎｓ Ｇａｌｌｅｒｙ</a>
+                    </div>
+
+                    <button type="button" id="play-btn" onclick="play(document.getElementById('nick').value); return false;" class="btn btn-play btn-primary btn-needs-server">Ｐｌａｙ</button>
+                    <button onclick="$('#settings, #instructions').toggle(); return false;" class="btn btn-info btn-settings" id="settings-btn"><i class="glyphicon glyphicon-cog"></i></button>
+                    <br clear="both" />
+                </div>
+
+                <div id="settings" class="checkbox" style="display:none;">
+                    <div class="form-group" id="mainform">
+                        <button id="spectate-btn" onclick="spectate(); return false;" style="width: 100%" class="btn btn-warning btn-spectate btn-needs-server">Ｓｐｅｃｔａｔｅ</button>
+                        <br clear="both" />
+                    </div>
+                    <div style="text-align: center ;margin: 910x;">
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="1" onchange="setSkins(!$(this).is(':checked'));"> ᴺᵒ ˢᵏᶦⁿˢ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="2" onchange="setNames(!$(this).is(':checked'));"> ᴺᵒ ⁿᵃᵐᵉˢ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="3" onchange="setDarkTheme($(this).is(':checked'));">ᴰᵃʳᵏ ᵗʰᵉᵐᵉ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="4" onchange="setColors($(this).is(':checked'));"> ᴺᵒ ᶜᵒˡᵒʳˢ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="5" onchange="setShowMass($(this).is(':checked'));"> ˢʰᵒʷ ᵐᵃˢˢ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="7" onchange="setChatHide($(this).is(':checked'));">ᴴᶦᵈᵉ ᶜʰᵃᵗ</label>
+                        <label>
+                            <input type="checkbox" class="save" data-box-id="8" onchange="setMinimap($(this).is(':checked'));">ᴴᶦᵈᵉ ᵐᶦⁿᶦᵐᵃᵖ</label>
+                    </div>
+                </div>
+            </form>
+	            <div id="instructions">
+                <hr/>
+                <center>
+                    <span class="text-muted">
+                        𝗠𝗼𝘃𝗲 𝘆𝗼𝘂𝗿 𝗺𝗼𝘂𝘀𝗲 𝘁𝗼 𝗰𝗼𝗻𝘁𝗿𝗼𝗹 𝘆𝗼𝘂𝗿 𝗰𝗲𝗹𝗹<br/>
+                        𝗣𝗿𝗲𝘀𝘀<b> 𝗦𝗽𝗮𝗰𝗲</b> 𝘁𝗼 𝘀𝗽𝗹𝗶𝘁<br/>
+                        𝗣𝗿𝗲𝘀𝘀<b> 𝗪</b> 𝘁𝗼 𝗲𝗷𝗲𝗰𝘁 𝘀𝗼𝗺𝗲 𝗺𝗮𝘀𝘀<br/>
+                        𝗣𝗹𝗮𝘆<b> 𝗪𝗶𝘁𝗵</b> 𝗡𝗼 𝗔𝗱𝘀<br/>
+                    </span>
+                </center>
+            </div>
+
+            <hr />
+            <div id="footer">
+                <a href="/CodeSrcs.html" class="text-muted">𝐂𝐫𝐞𝐝𝐢𝐭𝐬</a><br/>
+                <a href="/Contact.html" class="text-muted">𝗖𝗼𝗻𝘁𝗮𝗰𝘁</a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="connecting">
+        <div style="width: 350px; background-color: #FFFFFF; margin: 100px auto; border-radius: 15px; padding: 5px 15px 5px 15px;">
+            <h2>𝐂𝖔𝖓𝖓𝖊𝖈𝖙𝖎𝖓𝖌</h2>
+            <p> 𝙸𝚏 𝚢𝚘𝚞 𝚌𝚊𝚗𝚗𝚘𝚝 𝚌𝚘𝚗𝚗𝚎𝚌𝚝 𝚝𝚘 𝚝𝚑𝚎 𝚜𝚎𝚛𝚟𝚎𝚛𝚜, 𝚌𝚑𝚎𝚌𝚔 𝚒𝚏 𝚢𝚘𝚞 𝚑𝚊𝚟𝚎 𝚜𝚘𝚖𝚎 𝚊𝚗𝚝𝚒 𝚟𝚒𝚛𝚞𝚜 𝚘𝚛 𝚏𝚒𝚛𝚎𝚠𝚊𝚕𝚕 𝚋𝚕𝚘𝚌𝚔𝚒𝚗𝚐 𝚝𝚑𝚎 𝚌𝚘𝚗𝚗𝚎𝚌𝚝𝚒𝚘𝚗.𝙰𝚗𝚍 𝚒 𝚠𝚒𝚕𝚕 𝚌𝚑𝚎𝚌𝚔 𝚝𝚘𝚘 𝚒𝚏 𝚝𝚑𝚎 𝚏𝚛𝚎𝚎 𝚜𝚎𝚛𝚟𝚎𝚛 𝚖𝚊𝚍𝚎 𝚊 𝚋𝚘 𝚋𝚘𝚘</p>
+        </div>
+    </div>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <input type="text" id="chat_textbox" placeholder="Press enter to chat" maxlength="200" />
+    <div style="font-family:'Ubuntu'">&nbsp;</div>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+</html>
