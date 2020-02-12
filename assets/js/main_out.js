@@ -536,7 +536,7 @@
     wjQuery.ajax({
         type: "POST",
         dataType: "json",
-        url: "https://space.likesyou.org/checkdir.php",
+        url: "https://extraworkma.000webhostapp.com/checkdir.php",
         data: { "action": "getSkins" },
         success: function(data) {
             var stamp = Date.now();
